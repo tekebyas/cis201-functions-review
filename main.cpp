@@ -19,7 +19,7 @@ int main()
     cout << endl; // white space
 
     cout << "Please input a string of A's (case does not matter):  ";
-    cin >> s;
+    getline(cin,s);
 
     int count = a_in_string(s);
 
