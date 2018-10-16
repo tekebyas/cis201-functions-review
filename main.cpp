@@ -10,34 +10,22 @@
 using namespace std;
 
 int a_in_string(string s);
-int upper_a(string s);
-int lower_a(string s);
+bool is_a(char c);
 
 int main()
 {
     string s = "";
 
     cout << endl; // white space
+
     cout << "Please input a string of A's (case does not matter):  ";
     cin >> s;
 
-    // sets each count
-    int count_all = a_in_string(s);
-    int count_upper = upper_a(s);
-    int count_lower = lower_a(s);
+    int count = a_in_string(s);
 
     cout << endl; // white space
 
-    cout << "There are "
-         << count_upper
-         << " A's and "
-         << count_lower
-         << " a's in your string."
-         << endl
-         << "There are "
-         << count_all
-         << " A's in total."
-         << endl;
+    cout << "There are " << count << " A's in your string." << endl;
 
     cout << endl; // white space
 
@@ -54,40 +42,20 @@ int a_in_string(string s)
     int count = 0;
     for(int i = 0; i < s.length(); i++)
     {
-        if(s.at(i) == 'a' || s.at(i) == 'A')
-        count++;
+        if(is_a(s.at(i)))
+            count++;
     }
     return count;
 }
 
 /*
-    Will only count A's
-    @param s the string the user entered
-    @return only how many A's there are
+    Will check if the character received is the character expected
+    @param c a single character to be checked
+    @return true or false based on the state of the character
 */
-int upper_a(string s)
+bool is_a(char c)
 {
-    int count = 0;
-    for(int i = 0; i < s.length(); i++)
-    {
-        if(s.at(i) == 'A')
-        count++;
-    }
-    return count;
-}
-
-/*
-    Will only count a's
-    @param s the string the user entered
-    @return only how many a's there are
-*/
-int lower_a(string s)
-{
-    int count = 0;
-    for(int i = 0; i < s.length(); i++)
-    {
-        if(s.at(i) == 'a')
-        count++;
-    }
-    return count;
+    if(c == 'a' || c == 'A')
+        return true;
+    return false;
 }
